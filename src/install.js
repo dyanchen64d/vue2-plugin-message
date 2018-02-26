@@ -1,13 +1,22 @@
 import Vue from 'vue'
-import Message from './message.vue'
+import VueMessage from './message.vue'
 
 export default {
-  install (Vue, opts) {
-    const CONSTRUCTOR = Vue.extend(Message)
+  install (Vue, opts = {}) {
 
-    Vue.message = function () {
-      // new CONSTRUCTOR().$mount('#app')
-      console.log("vue plugin message....");
+    let CONSTRUCTOR = Vue.extend(VueMessage)
+    let Message = new CONSTRUCTOR()
+
+    Message.options = Object.assign(Message.options, opts)
+
+    let vm = Message.$mount()
+    // console.log(vm.$el);
+
+    // Add it to the Vue application
+    document.querySelector('body').appendChild(vm.$el)
+
+    Vue.$message = Vue.prototype.$message = function (msg) {
+      Message.showMsg(msg)
     }
   }
 }
