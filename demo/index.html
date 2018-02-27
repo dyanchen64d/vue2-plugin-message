@@ -5,9 +5,34 @@
     <title>vue2-plugin-message</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="../dist/build.js"></script>
+
+<style media="screen">
+.message-info {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: green;
+  margin-bottom: 10px;
+  color: white;
+}
+.message-warning {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: red;
+  margin-bottom: 10px;
+  color: white;
+}
+</style>
+
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="message-info" @click="msgInfo">Message Info</div>
+      <div class="message-warning" @click="msgWarning">Messasge Warning</div>
+    </div>
     <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>

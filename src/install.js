@@ -15,8 +15,8 @@ export default {
     // Add it to the Vue application
     document.querySelector('body').appendChild(vm.$el)
 
-    Vue.$message = Vue.prototype.$message = function (msg) {
-      Message.showMsg(msg)
+    Vue.$message = Vue.prototype.$message = function (msg, type) {
+      Message.showMsg(msg, type)
     }
   }
 }
